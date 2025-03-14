@@ -1,0 +1,55 @@
+# MODEL SETTINGS
+
+# ----> Run settings <----
+case: '2019_Narra_3D_sumE'
+
+# ----> Training configuration <----
+optimizer: Adam
+loss: MSE
+configuration_period: 0
+
+# ----> Model configuration <----
+Model: 'MoE' # Transformer, LSTM, MoE
+Implicit: False # not supported for Transformers yet
+
+# ----> Model Hyperparameters <----
+batch_size: 90
+sequence_length: 15
+learning_rate: 0.001
+epochs: 150
+num_hidden_units: 300
+num_lstm_layers: 1
+
+# ----> MoE Hyperparameters <----
+threshold: 3 #2.75 Narra
+init_w: 0 
+
+# ----> Transformer Hyperparameters <----
+attention_heads: 4
+enc_layers: 1
+
+# ----> Regularization (L1) <----
+lambda: 0.001
+neuron_dropout: 0.4
+
+# ---->  Data configurations <----
+target: 'dx'
+shoreline: 'shoreline'
+
+dynamic_inputs: 
+- 'E'
+- 'Hsig_0'
+- 'Hsig_1'
+- 'Hsig_2'
+- 'Hsig_peak_0'
+- 'Hsig_peak_1'
+- 'Hsig_peak_2'
+- 'Tp_0'
+- 'Tp_1'
+- 'Tp_2'
+- 'Tp_peak_0'
+- 'Tp_peak_1'
+- 'Tp_peak_2'
+- 'Wdir_0'                                                                                                                         
+- 'Wdir_1'
+- 'Wdir_2'
